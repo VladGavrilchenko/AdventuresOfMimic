@@ -285,8 +285,30 @@
                 },
                 {
                     "name": "",
+                    "id": "ebaafa46-d084-4da3-9f1a-aaa61be45df4",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f1c06328-fdf7-425d-a1bb-7a7202d9f40b",
                     "path": "<Joystick>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14dff014-ea79-4a8a-b697-b5a2bb30f9a7",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

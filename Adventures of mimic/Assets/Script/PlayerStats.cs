@@ -48,6 +48,7 @@ public class PlayerStats : CharacterStats, IPlayerStats
         AddToArmor(busstItem.GetAddArmor());
         AddToDamage(busstItem.GetAddDamage());
         UpdateUI();
+        Destroy(busstItem.gameObject);
     }
 
     private bool IsAddingToHitPointMoreMaxHitPoint(int addHitPoint)

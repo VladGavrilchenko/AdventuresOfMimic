@@ -13,6 +13,7 @@ public abstract class CharacterStats : MonoBehaviour
     private void Start()
     {
         _currentHitPoint = _maxHitPoint;
+        UpdateUI();
     }
 
     public virtual void TakeDamage(int damage)

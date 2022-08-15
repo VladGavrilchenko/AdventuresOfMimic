@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Enemy : MonoBehaviour
     private PatrulPointManager _patrulPointManager;
     private EnemyFight _enemyFight;
     private bool _isProvoked;
+    private Animator _animator;
+
+    public UnityEvent<bool> OnIsProvoked;
 
     private void Start()
     {
@@ -21,6 +25,7 @@ public class Enemy : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _patrulPointManager = GetComponent<PatrulPointManager>();
         _patrulPointManager.ChangeCurrentPatrolPoint();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -35,10 +40,11 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                _isProvoked = true;
+                
                 MoveToPlayer();
             }
-          
+            _isProvoked = true;
+            OnIsProvoked.Invoke(_isProvoked);
         }
         else
         {
@@ -48,12 +54,14 @@ public class Enemy : MonoBehaviour
 
     private void MoveToPlayer()
     {
+        _animator.SetBool("Move", true);
         _agent.SetDestination(_playerTransform.position);
         FaceTarget(_playerTransform.position);
     }
 
     private void Patrul()
     {
+        _animator.SetBool("Move", true);
         _agent.SetDestination(_patrulPointManager.GetPositionCurrentPatrolPoint());
 
         if (Vector3.Distance(transform.position, _patrulPointManager.GetPositionCurrentPatrolPoint()) < _agent.stoppingDistance)

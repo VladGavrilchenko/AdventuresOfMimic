@@ -29,7 +29,6 @@ public class PatrulPointManager : MonoBehaviour
         _currentPatrolPoint = _patrolPoints[randomSport];
         _passedPoints.Add(_currentPatrolPoint);
         _patrolPoints.Remove(_currentPatrolPoint);
-
     }
 
     public Vector3 GetPositionCurrentPatrolPoint()

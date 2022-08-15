@@ -5,16 +5,15 @@ using TMPro;
 
 public class EnemyStats : CharacterStats
 {
-    private TextMeshPro _textMeshProUGUI;
-
+    private EnemyStatsUI _enemyStatsUI;
     private void Awake()
     {
-        _textMeshProUGUI = GetComponentInChildren<TextMeshPro>();
+        _enemyStatsUI = FindObjectOfType<EnemyStatsUI>();
     }
 
     public override void UpdateUI()
     {
-        _textMeshProUGUI.SetText(GetCurrentHitPoint().ToString());
+        _enemyStatsUI.HitPointUIUptade(GetCurrentHitPoint());
     }
 
     public override void Die()
